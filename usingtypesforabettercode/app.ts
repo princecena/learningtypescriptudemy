@@ -119,7 +119,7 @@ namespace UsingTypeForBetterCode {
     let canAlsoBeNull; //it's value is undefined as it is not initialized
     canAlsoBeNull = null; 
     let canThisBeAny = null;
-    canThisBeAny = 12; //will give an error as we are assigning number to null type id we have set "strictNullChecks": true in tsconfig.json
+    canThisBeAny = 12; //will give an error as we are assigning number to null type as we have set "strictNullChecks": true in tsconfig.json
 
 }
 
