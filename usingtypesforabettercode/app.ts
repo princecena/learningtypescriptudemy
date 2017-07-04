@@ -105,3 +105,20 @@ let finalValue = 30;
 if (typeof finalValue == "number") {
     console.log("Final value is a number");
 }
+
+//never type - added with Typescript 2.0
+function neverReturns():never {
+    throw new Error('An Error!');
+}
+
+//Nullable types - added with Typescript 2.0 
+let canBeNull : number | null = 12;
+canBeNull = null; //if we set "strictNullChecks": true in tsconfig.json, it will give error that null cannot be assigned to number type
+let canAlsoBeNull; //it's value is undefined as it is not initialized
+canAlsoBeNull = null; 
+let canThisBeAny = null;
+canThisBeAny = 12; //will give an error as we are assigning number to null type id we have set "strictNullChecks": true in tsconfig.json
+
+
+
+
