@@ -1,123 +1,128 @@
-// string
-let myName: string = 'Max';
-// myName = 28;
+namespace UsingTypeForBetterCode {
 
-// number
-let myAge: number = 27;
-// myAge = 'Max';
+    // string
+    let myName: string = 'Max';
+    // myName = 28;
 
-// boolean
-let hasHobbies: boolean = false;
-// hasHobbies = 1;
+    // number
+    let myAge: number = 27;
+    // myAge = 'Max';
 
-// assign types
-let myRealAge: number;
-myRealAge = 27;
-// myRealAge = '27';
+    // boolean
+    let hasHobbies: boolean = false;
+    // hasHobbies = 1;
 
-// array
-let hobbies: any[] = ["Cooking", "Sports"];
-hobbies = [100];
-// hobbies = 100;
+    // assign types
+    let myRealAge: number;
+    myRealAge = 27;
+    // myRealAge = '27';
 
-// tuples
-let address: [string, number] = ["Superstreet", 99];
+    // array
+    let hobbies: any[] = ["Cooking", "Sports"];
+    hobbies = [100];
+    // hobbies = 100;
 
-// enum
-enum Color {
-    Gray, // 0
-    Green = 100, // 100
-    Blue = 2// 2
-}
-let myColor: Color = Color.Blue;
-console.log(myColor);
+    // tuples
+    let address: [string, number] = ["Superstreet", 99];
 
-// any
-let car: any = "BMW";
-console.log(car);
-car = { brand: "BMW", series: 3};
-console.log(car);
-
-// functions
-function returnMyName(): string {
-    return myName;
-}
-console.log(returnMyName());
-
-// void
-function sayHello(): void {
-    console.log("Hello!");
-}
-
-// argument types
-function multiply(value1: number, value2: number): number {
-    return value1 * value2;
-}
-// console.log(multiply(2, 'Max'));
-console.log(multiply(10, 2));
-
-// function types
-let myMultiply: (a: number, b: number) => number;
-// myMultiply = sayHello;
-// myMultiply();
-myMultiply = multiply;
-console.log(myMultiply(5, 2));
-
-// objects
-let userData: { name: string, age: number } = {
-    name: "Max",
-    age: 27
-};
-// userData = {
-//     a: "Hello",
-//     b: 22
-// };
-
-// complex object
-let complex: {data: number[], output: (all: boolean) => number[]} = {
-    data: [100, 3.99, 10],
-
-    output: function (all: boolean): number[] {
-        return this.data;
+    // enum
+    enum Color {
+        Gray, // 0
+        Green = 100, // 100
+        Blue = 2// 2
     }
-};
-// complex = {};
+    let myColor: Color = Color.Blue;
+    console.log(myColor);
 
-// type alias
+    // any
+    let car: any = "BMW";
+    console.log(car);
+    car = { brand: "BMW", series: 3};
+    console.log(car);
 
-type Complex = {data: number[], output: (all: boolean) => number[]};
-
-let complex2: Complex = {
-    data: [100, 3.99, 10],
-
-    output: function (all: boolean): number[] {
-        return this.data;
+    // functions
+    function returnMyName(): string {
+        return myName;
     }
-};
+    console.log(returnMyName());
 
-// union types
-let myRealRealAge: number | string = 27;
-myRealRealAge = "27";
-// myRealRealAge = true;
+    // void
+    function sayHello(): void {
+        console.log("Hello!");
+    }
 
-// check types
-let finalValue = 30;
-if (typeof finalValue == "number") {
-    console.log("Final value is a number");
+    // argument types
+    function multiply(value1: number, value2: number): number {
+        return value1 * value2;
+    }
+    // console.log(multiply(2, 'Max'));
+    console.log(multiply(10, 2));
+
+    // function types
+    let myMultiply: (a: number, b: number) => number;
+    // myMultiply = sayHello;
+    // myMultiply();
+    myMultiply = multiply;
+    console.log(myMultiply(5, 2));
+
+    // objects
+    let userData: { name: string, age: number } = {
+        name: "Max",
+        age: 27
+    };
+    // userData = {
+    //     a: "Hello",
+    //     b: 22
+    // };
+
+    // complex object
+    let complex: {data: number[], output: (all: boolean) => number[]} = {
+        data: [100, 3.99, 10],
+
+        output: function (all: boolean): number[] {
+            return this.data;
+        }
+    };
+    // complex = {};
+
+    // type alias
+
+    type Complex = {data: number[], output: (all: boolean) => number[]};
+
+    let complex2: Complex = {
+        data: [100, 3.99, 10],
+
+        output: function (all: boolean): number[] {
+            return this.data;
+        }
+    };
+
+    // union types
+    let myRealRealAge: number | string = 27;
+    myRealRealAge = "27";
+    // myRealRealAge = true;
+
+    // check types
+    let finalValue = 30;
+    if (typeof finalValue == "number") {
+        console.log("Final value is a number");
+    }
+
+    //never type - added with Typescript 2.0
+    function neverReturns():never {
+        throw new Error('An Error!');
+    }
+
+    //Nullable types - added with Typescript 2.0 
+    let canBeNull : number | null = 12;
+    canBeNull = null; //if we set "strictNullChecks": true in tsconfig.json, it will give error that null cannot be assigned to number type
+    let canAlsoBeNull; //it's value is undefined as it is not initialized
+    canAlsoBeNull = null; 
+    let canThisBeAny = null;
+    canThisBeAny = 12; //will give an error as we are assigning number to null type id we have set "strictNullChecks": true in tsconfig.json
+
 }
 
-//never type - added with Typescript 2.0
-function neverReturns():never {
-    throw new Error('An Error!');
-}
-
-//Nullable types - added with Typescript 2.0 
-let canBeNull : number | null = 12;
-canBeNull = null; //if we set "strictNullChecks": true in tsconfig.json, it will give error that null cannot be assigned to number type
-let canAlsoBeNull; //it's value is undefined as it is not initialized
-canAlsoBeNull = null; 
-let canThisBeAny = null;
-canThisBeAny = 12; //will give an error as we are assigning number to null type id we have set "strictNullChecks": true in tsconfig.json
 
 
 
