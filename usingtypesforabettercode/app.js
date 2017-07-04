@@ -96,5 +96,5 @@ var UsingTypeForBetterCode;
     var canAlsoBeNull; //it's value is undefined as it is not initialized
     canAlsoBeNull = null;
     var canThisBeAny = null;
-    canThisBeAny = 12; //will give an error as we are assigning number to null type id we have set "strictNullChecks": true in tsconfig.json
+    canThisBeAny = 12; //will give an error as we are assigning number to null type as we have set "strictNullChecks": true in tsconfig.json
 })(UsingTypeForBetterCode || (UsingTypeForBetterCode = {}));

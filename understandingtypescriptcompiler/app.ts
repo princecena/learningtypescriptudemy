@@ -23,7 +23,7 @@ namespace Understandingtypescriptcompiler {
         if (isTrue) {
             result = 12; //this might result in error if we set strictNullChecks to true in tsconfig.json as it is of type null implicitly
         }
-        result = 33;//Without this command, it will give an error as result was never initialized beofre returing.
+        result = 33;//Without this command, it will give an error as result was never initialized before returing.
         return result;
     }
     //In the above function, we have also used somethingElse as an argument, but we never used. 
