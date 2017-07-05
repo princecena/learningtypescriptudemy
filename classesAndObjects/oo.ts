@@ -93,6 +93,28 @@ namespace ClassesAndObjects {
     console.log(newProject);
     newProject.changeName("Super IT Project");
     console.log(newProject);
-    
+
+    // private constructors or Singleton Classes(added with TypeScript 2.0)
+    class OnlyOne {
+        private static instance: OnlyOne;
+
+        private constructor(public readonly name: string) {} //name property is now readonly
+
+        static getInstance() {
+            if (!OnlyOne.instance) {
+                OnlyOne.instance = new OnlyOne('The Only One');
+            }
+            return OnlyOne.instance;
+        }
+    }
+    //let wrong = new OnlyOne('The Only One');
+    let right = OnlyOne.getInstance();
+
+    //"readonly" Properties(added with TypeScript 2.0)
+    //If we specify only a getter and no stter, we can set the property as readonly
+
+
 }
+
+
 
